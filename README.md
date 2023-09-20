@@ -13,3 +13,4 @@
 ## Usage
 Commit: `cz commit`  
 Bump version: `cz bump`
+git push
