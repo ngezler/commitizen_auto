@@ -1,3 +1,10 @@
+## 0.3.1 (2023-09-20)
+
+### Fix
+
+- we had a conflict, of version
+- I have just added an an ! mark
+
 ## 0.3.0 (2023-09-20)
 
 ### Feat
@@ -5,10 +12,13 @@
 - added a new breaking change
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### Fix
 
 - I have just added an an ! mark
 
+=======
+>>>>>>> 2a514618e706f020bb9b0cc21da5f4402fa43b5a
 =======
 >>>>>>> 2a514618e706f020bb9b0cc21da5f4402fa43b5a
 ## 0.2.0 (2023-09-19)
