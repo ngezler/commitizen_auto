@@ -1,3 +1,15 @@
+## 1.0.0 (2023-09-21)
+
+### Feat
+
+- just did a change to play with rebase
+
+### Fix
+
+- bumping the version
+- fixing the pipeline
+- didn't bump the version
+
 ## 0.3.1 (2023-09-20)
 
 ### Fix
