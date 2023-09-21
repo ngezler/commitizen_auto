@@ -14,5 +14,3 @@
 Commit: `cz commit`  
 Bump version: `cz bump`
 git push
-
-#do not forget to bump the version
