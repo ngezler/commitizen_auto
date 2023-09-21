@@ -14,3 +14,5 @@
 Commit: `cz commit`  
 Bump version: `cz bump`
 git push
+
+#we didn't bump and the pipeline failed
