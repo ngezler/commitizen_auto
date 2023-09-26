@@ -9,7 +9,7 @@ on:
 jobs:
   bump-version:
     if: "github.event.pull_request.merged == true && !startsWith(github.event.pull_request.title, 'bump:')"
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     name: "Bump version and create changelog with commitizen"
     steps:
       - name: Check out
