@@ -1,3 +1,11 @@
+## 1.1.0 (2023-09-26)
+
+### Feat
+
+- added a feature
+- we made a change on a feature
+- adding  new feature
+
 ## 1.0.0 (2023-09-21)
 
 ### Feat
