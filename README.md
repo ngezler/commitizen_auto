@@ -1,4 +1,4 @@
-# Commitizen: A Comprehensive Guide for Linux Systems
+# Commitizen
 
 Commitizen offers more than just the ability to structure git commit messages. It's a powerful tool that, when combined with CI/CD pipelines like GitHub Actions, can automate version management and changelog creation. This guide provides a detailed, step-by-step walkthrough, from installation to versioned releases.
 
