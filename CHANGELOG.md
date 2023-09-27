@@ -1,3 +1,15 @@
+## 1.2.0 (2023-09-27)
+
+### Feat
+
+- added a response feature
+- added a response feature
+- changed comm
+
+### Fix
+
+- Resolved merge conflicts in comm.py
+
 ## 1.1.0 (2023-09-26)
 
 ### Feat
