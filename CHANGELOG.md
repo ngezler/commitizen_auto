@@ -1,3 +1,9 @@
+## 1.2.2 (2023-09-27)
+
+### Fix
+
+- making a small fix to test oatch bumps
+
 ## 1.2.1 (2023-09-27)
 
 ### Fix
