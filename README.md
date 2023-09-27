@@ -8,24 +8,24 @@ Commitizen offers more than just the ability to structure git commit messages. I
 
 First, ensure you have Python and pip installed. If not, install them:
 
-\```bash
+```bash
 sudo apt-get update
 sudo apt-get install python3 python3-pip
-\```
+```
 
 ### 1.2. Install Commitizen
 
 **Global Installation**:
 
-\```bash
+```bash
 sudo pip3 install -U Commitizen
-\```
+```
 
 **Local Project Installation**:
 
-\```bash
+```bash
 pip3 install -U Commitizen
-\```
+```
 
 ## 2. Setup Your Project
 
@@ -33,9 +33,9 @@ pip3 install -U Commitizen
 
 If your project isn't already a git repository, initialize it:
 
-\```bash
+```bash
 git init
-\```
+```
 
 ### 2.2. Commitizen Configuration
 
@@ -45,9 +45,9 @@ Setting up Commitizen is straightforward thanks to the `cz init` command. This c
    
    Run the following command to initiate the setup process:
 
-\```bash
+```bash
 cz init
-\```
+```
 
 2. **Select Configuration File**: 
    
@@ -65,17 +65,17 @@ Make some changes in your project. This could be anything from adding a new feat
 
 ### 3.2. Add Changes to Git
 
-\```bash
+```bash
 git add .
-\```
+```
 
 ### 3.3. Commit Using Commitizen
 
 Instead of the usual `git commit`, use:
 
-\```bash
+```bash
 cz commit
-\```
+```
 
 Follow the prompts to create a structured commit message.
 
@@ -85,9 +85,9 @@ Follow the prompts to create a structured commit message.
 
 Before implementing a new feature or bugfix, create a separate branch:
 
-\```bash
+```bash
 git checkout -b feature/your-feature-name
-\```
+```
 
 ### 4.2. Make Changes and Commit Using Commitizen
 
@@ -95,9 +95,9 @@ Repeat the steps from section 3 to make and commit your changes.
 
 ### 4.3. Push the Feature Branch to Remote
 
-\```bash
+```bash
 git push origin feature/your-feature-name
-\```
+```
 
 ### 4.4. Create a Pull Request
 
