@@ -1,3 +1,9 @@
+## 1.5.0 (2023-10-03)
+
+### Feat
+
+- add requirements.txt for dependency management
+
 ## 1.4.0 (2023-10-03)
 
 ### Feat
