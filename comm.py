@@ -8,4 +8,5 @@ def response():
     """
         This is a docstring for the response function.
     """
+    print("test")
     return "Hello Response!"
