@@ -1,3 +1,15 @@
+## 1.3.0 (2023-10-03)
+
+### Feat
+
+- remove pre-commit hooks that including linters and formatters
+- **pre-commit-config**: Update pre-commit hooks to include new linters and formatters
+
+### Fix
+
+- minor fix
+- removing missplaced version numbers
+
 ## 1.2.2 (2023-09-27)
 
 ### Fix
