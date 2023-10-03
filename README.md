@@ -1,145 +1,134 @@
-# Commitizen
 
-Commitizen offers more than just the ability to structure git commit messages. It's a powerful tool that, when combined with CI/CD pipelines like GitHub Actions, can automate version management and changelog creation. This guide provides a detailed, step-by-step walkthrough, from installation to versioned releases.
+# Commitizen Auto Project
 
-## 1. Installation
+This project serves as a guide for understanding and using Commitizen for committing code changes in compliance with Conventional Commits.
 
-### 1.1. Python Installation
+## Prerequisites
 
-First, ensure you have Python and pip installed. If not, install them:
+- Python 3.x
+- Git
+- Commitizen
 
-```bash
-sudo apt-get update
-sudo apt-get install python3 python3-pip
-```
+## Installation
 
-### 1.2. Install Commitizen
-
-**Global Installation**:
+To install the required packages, run:
 
 ```bash
-sudo pip3 install -U Commitizen
+pip install -r requirements.txt
 ```
 
-**Local Project Installation**:
 
-```bash
-pip3 install -U Commitizen
+## Installation and Configuration Guide
+
+To set up this project locally, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/ngezler/commitizen_auto.git
+    ```
+
+2. Navigate to the project directory:
+    ```bash
+    cd commitizen_auto
+    ```
+
+3. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+
+## Guide: Understanding Commit Types with Commitizen
+
+This guide focuses on making progressive changes to a single Python function, `communicate`, to demonstrate different types of commits in Commitizen.
+
+### Step 1: Initial Function (Starting Point)
+
+The `communicate` function initially looks like this:
+
+```python
+def communicate():
+    print("Hello Comm!")
 ```
 
-## 2. Setup Your Project
+Commit Message: `chore: add initial communicate function`
 
-### 2.1. Initialize a Git Repository
+### Step 2: Add Functionality (feat)
 
-If your project isn't already a git repository, initialize it:
+Next, we'll enhance the function to return a value instead of printing:
 
-```bash
-git init
+```python
+def communicate():
+    return "Hello Comm!"
 ```
 
-### 2.2. Commitizen Configuration
+Commit Message: `feat: modify communicate to return value`
 
-Setting up Commitizen is straightforward thanks to the `cz init` command. This command will prompt you to select a configuration file and a commit convention.
+### Step 3: Add Documentation (docs)
 
-1. **Initialize Configuration**:
-   
-   Run the following command to initiate the setup process:
+Let's add a docstring to our function:
 
-```bash
-cz init
+```python
+def communicate():
+    """
+    This function returns a simple greeting.
+    """
+    return "Hello Comm!"
 ```
 
-2. **Select Configuration File**: 
-   
-   When prompted, choose `pyproject.toml` as the configuration file. We opt for `pyproject.toml` specifically because we are working on a Python project, and this file has become the standard for storing Python project configurations.
+Commit Message: `docs: add docstring to communicate function`
 
-3. **Choose Commit Convention**:
-   
-   For the commit convention, select the "cz_conventional_commits" option to adhere to the conventional commits rule.
+### Step 4: Improve Functionality (refactor)
 
-## 3. Making Commits Using Commitizen
+We'll further improve the function by allowing it to take an argument:
 
-### 3.1. Make Changes in Your Project
-
-Make some changes in your project. This could be anything from adding a new feature, fixing a bug, or updating documentation.
-
-### 3.2. Add Changes to Git
-
-```bash
-git add .
+```python
+def communicate(message="Hello Comm!"):
+    """
+    This function returns the provided message.
+    """
+    return message
 ```
 
-### 3.3. Commit Using Commitizen
+Commit Message: `refactor: add argument to communicate function`
 
-Instead of the usual `git commit`, use:
+### Step 5: Breaking Change
 
-```bash
-cz commit
+Finally, we'll introduce a breaking change by making the argument mandatory:
+
+```python
+def communicate(message):
+    """
+    BREAKING CHANGE: This function now requires a message argument.
+    """
+    return message
 ```
 
-Follow the prompts to create a structured commit message.
+Commit Message: `feat: make argument mandatory in communicate function (BREAKING CHANGE)`
 
-## 4. Using Commitizen with a Branching Strategy
 
-### 4.1. Create a Feature Branch
+## Commit Message Comparisons
 
-Before implementing a new feature or bugfix, create a separate branch:
+### Good Examples
 
-```bash
-git checkout -b feature/your-feature-name
-```
+- `chore: add initial communicate function`
+- `feat: modify communicate to return value`
+- `docs: add docstring to communicate function`
+- `refactor: add argument to communicate function`
+- `feat: make argument mandatory in communicate function (BREAKING CHANGE)`
 
-### 4.2. Make Changes and Commit Using Commitizen
+### Bad Examples
 
-Repeat the steps from section 3 to make and commit your changes.
+- `added something to communicate`
+- `changes`
+- `oops`
+- `this might work`
+- `empty commit messages`
 
-### 4.3. Push the Feature Branch to Remote
 
-```bash
-git push origin feature/your-feature-name
-```
 
-### 4.4. Create a Pull Request
+## Conclusion
 
-Use your git platform (like GitHub or GitLab) to create a pull request to merge the feature branch into the main branch.
+Writing good commit messages is crucial for any developer and it's evident in our progressive changes to the `communicate` function. Each commit served not just as a log but also provided context for why the function was changed, whether it was for adding new features, refactoring, or even introducing breaking changes.
 
-## 5. Automated Version Bumping with GitHub Actions
-
-Upon merging a pull request, you can utilize GitHub Actions to automatically bump the version and generate a changelog.
-
-### 5.1. GitHub Action Setup
-
-In your repository, navigate to `.github/workflows` (create the directory if it doesn't exist). Create a new YAML file for the action, e.g., `bump_version.yml`. Populate it with:
-
-```yaml
-name: Bump version
-
-on:
-  pull_request:
-    types: [closed]
-    branches:
-      - main
-
-jobs:
-  bump-version:
-    if: "github.event.pull_request.merged == true && !startsWith(github.event.pull_request.title, 'bump:')"
-    runs_on: ubuntu-latest
-    steps:
-      - name: Check out
-        uses: actions/checkout@v3
-        with:
-          token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
-          fetch-depth: 0
-      - name: Bump version and generate changelog
-        uses: commitizen-tools/commitizen-action@master
-        with:
-          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-```
-
-### 5.2. Merging Pull Requests
-
-When you merge a pull request, the action will automatically bump the version based on the commits. It will also generate a changelog for you.
-
-## 6. Conclusion
-
-With Commitizen and GitHub Actions, you can maintain a clean commit history, automatically manage versions, and generate changelogs effortlessly. This guide should equip you with the knowledge to integrate Commitizen into your workflow, but for more advanced configurations or details, refer to the official [Commitizen documentation](https://commitizen-tools.github.io/commitizen/).
+By adhering to a set of descriptive conventions, like the ones demonstrated in this guide, you not only make your codebase more understandable but also facilitate effective team collaboration and future decision-making.
